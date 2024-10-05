@@ -1,0 +1,45 @@
+<!-- Declara o tipo de documento como HTML5 -->
+<!DOCTYPE html>
+<!-- Início do documento HTML, define o idioma como português do Brasil -->
+<html lang="pt-BR">
+<head>
+    <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Configura a viewport para dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define o título da página exibido na aba do navegador -->
+    <title>Fila de Atendimento</title>
+    <!-- Importa a biblioteca Vue.js a partir de um CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <!-- Importa o CSS do Tailwind para estilização da página -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<!-- Define o estilo do corpo da página -->
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <!-- Container principal da aplicação Vue -->
+    <div id="app" class="bg-white p-6 rounded-lg shadow-md w-96">
+        <!-- Título da aplicação -->
+        <h1 class="text-2xl font-bold text-center text-gray-800 mb-4">Fila de Atendimento com Vue.js</h1>
+        <!-- Container para os botões, utilizando Flexbox para layout vertical -->
+        <div class="flex flex-col space-y-2">
+            <!-- Botão para adicionar senha comum, com event handler para chamar a função adicionarComum -->
+            <button @click="adicionarComum" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded">Senha Comum</button>
+            <!-- Botão para adicionar senha especial, com event handler para chamar a função adicionarEspecial -->
+            <button @click="adicionarEspecial" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded">Senha Especial</button>
+            <!-- Botão para atender senha comum, com event handler para chamar a função atenderComum -->
+            <button @click="atenderComum" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 rounded">Atendimento Comum</button>
+            <!-- Botão para atender senha especial, com event handler para chamar a função atenderEspecial -->
+            <button @click="atenderEspecial" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded">Atendimento Especial</button>
+        </div>
+
+        <!-- Container que exibe a lista de senhas na fila -->
+        <div id="fila" class="mt-4 p-4 border border-gray-300 rounded bg-gray-50 max-h-40 overflow-y-auto">
+            <!-- Loop através de cada item na fila e exibe na tela -->
+            <div v-for="item in fila" :key="item" class="text-gray-700">{{ item }}</div>
+        </div>
+    </div>
+
+     <!-- Importa o script JavaScript que contém a lógica da aplicação -->
+    <script src="js/script.js"></script>
+</body>
+</html>
